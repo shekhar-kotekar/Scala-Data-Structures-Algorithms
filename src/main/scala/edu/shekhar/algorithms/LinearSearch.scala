@@ -2,7 +2,7 @@ package edu.shekhar.algorithms
 
 import scala.annotation.tailrec
 
-class LinearSearchAlgorithm[K] extends SearchAlgorithms[K] {
+class LinearSearch[K] extends SearchAlgorithms[K] {
   /**
    * Try to find a given number is present in the given array
    *
