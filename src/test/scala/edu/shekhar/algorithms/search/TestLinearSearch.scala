@@ -1,4 +1,4 @@
-package edu.shekhar.algorithms
+package edu.shekhar.algorithms.search
 
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers

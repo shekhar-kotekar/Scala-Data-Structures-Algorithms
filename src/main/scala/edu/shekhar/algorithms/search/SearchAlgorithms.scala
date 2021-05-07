@@ -1,4 +1,4 @@
-package edu.shekhar.algorithms
+package edu.shekhar.algorithms.search
 
 trait SearchAlgorithms[K] {
 
