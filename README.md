@@ -4,3 +4,4 @@ As of now following algorithms are implemented along with unit test cases. Haven
 
 1. Linear search
 2. Binary search
+3. Fibonacci sequence generator
