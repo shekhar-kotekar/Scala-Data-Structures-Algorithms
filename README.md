@@ -8,4 +8,4 @@ As of now following algorithms are implemented along with unit test cases. Haven
 4. Problem of "calculating product of elements except itself" solved. This problem is given on leet code and is asked at FAANG companies.
 5. Adding two numbers using linked list
 6. Sum of three values
-
+7. Finding first non repeating character algorithm

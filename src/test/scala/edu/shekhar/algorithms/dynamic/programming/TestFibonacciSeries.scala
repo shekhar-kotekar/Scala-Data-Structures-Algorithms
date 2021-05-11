@@ -16,6 +16,8 @@ class TestFibonacciSeries extends AnyFlatSpec with Matchers {
 
     val expectedFibOf8 = 21
     fibGenerator.get(8) shouldEqual expectedFibOf8
+    val fibOf47: Long = 12586269025L
+    fibGenerator.get(50) shouldEqual fibOf47
   }
 
 }

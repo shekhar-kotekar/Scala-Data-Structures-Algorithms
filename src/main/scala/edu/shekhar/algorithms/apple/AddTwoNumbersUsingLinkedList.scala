@@ -48,6 +48,11 @@ class AddTwoNumbersUsingLinkedList {
 }
 
 object AddTwoNumbersUsingLinkedList {
+
+  class LinkedList {
+    val head: Node = Node(Integer.MIN_VALUE)
+  }
+
   def toLinkedList(array: Array[Int]): Node = {
     val head = Node(Integer.MIN_VALUE)
     array.foldRight(head){(currentNumber, accumulator) => makeLinkList(currentNumber, accumulator) }
@@ -64,7 +69,6 @@ object AddTwoNumbersUsingLinkedList {
     case node: Option[Node] => print(s"${node.get.data} -> ")
       printLinkedList(node.get.next)
   }
-
 }
 
 case class Node(data: Int, var next: Option[Node] = None) {
