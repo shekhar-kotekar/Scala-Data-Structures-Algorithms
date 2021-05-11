@@ -9,15 +9,21 @@ class TestFibonacciSeries extends AnyFlatSpec with Matchers {
     val fibGenerator = new FibonacciGenerator()
     val n = 6
     val expectedFibOf6 = 8
+    //fibGenerator.naiveFib(n) shouldEqual expectedFibOf6
     fibGenerator.get(n) shouldEqual expectedFibOf6
+    println("-----------------------------------")
 
     val expectedFibOf7 = 13
     fibGenerator.get(7) shouldEqual expectedFibOf7
+    println("-----------------------------------")
 
     val expectedFibOf8 = 21
     fibGenerator.get(8) shouldEqual expectedFibOf8
+    println("-----------------------------------")
+
     val fibOf47: Long = 12586269025L
     fibGenerator.get(50) shouldEqual fibOf47
+    println("-----------------------------------")
   }
 
 }
