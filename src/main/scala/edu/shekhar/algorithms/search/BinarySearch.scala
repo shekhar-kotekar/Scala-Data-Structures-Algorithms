@@ -28,7 +28,7 @@ class BinarySearch[K <: Int] extends SearchAlgorithms[K] {
       val numberAtMid: K = array(midPoint)
       if(numberAtMid == numberToSearch) {
         midPoint
-      } else if(numberAtMid > numberAtMid) {
+      } else if(numberAtMid > numberToSearch) {
         loop(first, midPoint - 1, array, numberToSearch)
       } else {
         loop(midPoint + 1, last, array, numberToSearch)
