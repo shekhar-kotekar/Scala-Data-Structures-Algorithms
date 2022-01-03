@@ -24,14 +24,18 @@ class BinarySearch[K <: Int] extends SearchAlgorithms[K] {
   @tailrec
   private def loop(first: Int, last: Int, array: Seq[K], numberToSearch: K): Int = {
     if(first <= last) {
-      val midPoint: Int = Math.floor((first + last) / 2).toInt
-      val numberAtMid: K = array(midPoint)
-      if(numberAtMid == numberToSearch) {
-        midPoint
-      } else if(numberAtMid > numberToSearch) {
-        loop(first, midPoint - 1, array, numberToSearch)
+      val midIndex: Int = Math.floor((first + last) / 2).toInt
+      val valueAtMid: K = array(midIndex)
+      if(valueAtMid == numberToSearch) {
+        midIndex
+      } else if(valueAtMid > numberToSearch) {
+        // If value at middle of the array is greater than number to search then
+        // it means that the number to search is at left side of the array so
+        // we can safely ignore right side of the array and search the number in just
+        // left side of the array
+        loop(first, midIndex - 1, array, numberToSearch)
       } else {
-        loop(midPoint + 1, last, array, numberToSearch)
+        loop(midIndex + 1, last, array, numberToSearch)
       }
     } else {
       -1
