@@ -9,13 +9,12 @@ class TestAnagramFinder extends TestWrapper {
     anagramFinder.isAnagram(string1, string2) shouldEqual true
   }
 
-  //TODO: Fix this  test
-//  it should "return false if two strings are not anagrams of each other" {
-//    val anagramFinder: AnagramFinder = new AnagramFinder()
-//    val string1 = "apple"
-//    val string2 = "pplea not anagram"
-//    val result: Boolean = anagramFinder.isAnagram(string1, string2)
-//    result shouldEqual false
-//  }
+  it should "return false if two strings are not anagrams of each other" in {
+    val anagramFinder: AnagramFinder = new AnagramFinder()
+    val string1 = "apple"
+    val string2 = "pplea not anagram"
+    val result: Boolean = anagramFinder.isAnagram(string1, string2)
+    result shouldEqual false
+  }
 
 }
