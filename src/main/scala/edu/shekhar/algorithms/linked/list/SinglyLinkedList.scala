@@ -90,4 +90,21 @@ class SinglyLinkedList[T] extends LinkedList[T] {
 
     loop(this.head, itemToSearch)
   }
+
+  override def remove(itemToRemove: T): Unit = {
+    @tailrec
+    def loop(currentNode: Option[Node[T]], previousNode: Option[Node[T]], itemToRemove: T): Unit = {
+      if(currentNode.isDefined) {
+        if(currentNode.get.data == itemToRemove && currentNode == this.head) {
+          this.head = currentNode.get.next
+        } else if(currentNode.get.data == itemToRemove) {
+          previousNode.get.next = currentNode.get.next
+        } else {
+          loop(currentNode.get.next, currentNode, itemToRemove)
+        }
+      } else {
+      }
+    }
+    loop(this.head, None, itemToRemove)
+  }
 }

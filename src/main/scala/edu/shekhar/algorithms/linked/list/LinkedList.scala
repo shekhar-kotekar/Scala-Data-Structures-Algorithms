@@ -14,4 +14,6 @@ trait LinkedList[T] extends LazyLogging {
   def getIndex(dataToSearch: T): Option[Long]
 
   def insert(itemToInsert: T, insertIndex: Long): Boolean
+
+  def remove(itemToRemove: T): Unit
 }

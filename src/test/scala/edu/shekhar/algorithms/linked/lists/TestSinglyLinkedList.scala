@@ -63,4 +63,21 @@ class TestSinglyLinkedList extends AnyFlatSpec with should.Matchers with LazyLog
     indexOfInsertedValue.get shouldEqual insertAtIndex
   }
 
+  it should "be able to remove an item from the list" in {
+    val singlyLinkedList: LinkedList[Int] = new SinglyLinkedList[Int]
+    singlyLinkedList.add(10)
+    singlyLinkedList.add(20)
+    singlyLinkedList.add(30)
+    singlyLinkedList.add(40)
+    singlyLinkedList.add(50)
+    singlyLinkedList.add(60)
+    this.logger.info(singlyLinkedList.toString)
+
+    singlyLinkedList.remove(60)
+    singlyLinkedList.getHead.get shouldEqual 50
+
+    singlyLinkedList.remove(30)
+    singlyLinkedList.getIndex(20).get shouldEqual 2
+  }
+
 }
