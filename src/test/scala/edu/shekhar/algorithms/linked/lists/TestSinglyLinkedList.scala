@@ -1,7 +1,7 @@
 package edu.shekhar.algorithms.linked.lists
 
 import com.typesafe.scalalogging.LazyLogging
-import edu.shekhar.algorithms.linked.list.{LinkedList, SinglyLinkedList}
+import edu.shekhar.algorithms.linked.list.{LinkedList, Node, SinglyLinkedList}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should
 
@@ -21,6 +21,25 @@ class TestSinglyLinkedList extends AnyFlatSpec with should.Matchers with LazyLog
     newHead.isDefined shouldBe true
     newHead.get shouldEqual nextDataToAdd
     singlyLinkedList.size shouldEqual 2
+  }
+
+  it should "return a node if item to be searched is present in the list" in {
+    val singlyLinkedList: LinkedList[Int] = new SinglyLinkedList[Int]
+    singlyLinkedList.add(10)
+    singlyLinkedList.add(20)
+    singlyLinkedList.add(30)
+    val result: Option[Node[Int]] = singlyLinkedList.search(20)
+    result.isDefined shouldBe true
+    result.get.data shouldEqual 20
+  }
+
+  it should "return None if item to be searched is present in the list" in {
+    val singlyLinkedList: LinkedList[Int] = new SinglyLinkedList[Int]
+    singlyLinkedList.add(10)
+    singlyLinkedList.add(20)
+    singlyLinkedList.add(30)
+    val result: Option[Node[Int]] = singlyLinkedList.search(9999)
+    result.isEmpty shouldBe true
   }
 
 }

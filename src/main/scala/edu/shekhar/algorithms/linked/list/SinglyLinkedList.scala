@@ -1,5 +1,7 @@
 package edu.shekhar.algorithms.linked.list
 
+import scala.annotation.tailrec
+
 class SinglyLinkedList[T] extends LinkedList[T] {
 
   private var head: Option[Node[T]] = None
@@ -26,5 +28,28 @@ class SinglyLinkedList[T] extends LinkedList[T] {
       case Some(value) => Some(value.data)
       case None => None
     }
+  }
+
+  /**
+   * Search operation in the singly linked list is linear and
+   * it scans each item one by one from head to tail hence
+   * its time complexity is O(n)
+   * @param itemToSearch
+   * @return
+   */
+  override def search(itemToSearch: T): Option[Node[T]] = {
+    @tailrec
+    def loop(currentNode: Option[Node[T]], itemToSearch: T): Option[Node[T]] = {
+      if(currentNode.isDefined){
+        if(currentNode.get.data == itemToSearch) {
+          currentNode
+        } else {
+          loop(currentNode.get.next, itemToSearch)
+        }
+      } else {
+        None
+      }
+    }
+    loop(this.head, itemToSearch)
   }
 }
