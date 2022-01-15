@@ -4,7 +4,7 @@ import scala.annotation.tailrec
 
 class BinarySearch[K <: Int] extends SearchAlgorithms[K] {
   /**
-   * Try to find a given number is present in the given array
+   * find if a given number is present in the given array
    *
    * @param numberToSearch Number to be searched
    * @param array          Array in which number to be searched
