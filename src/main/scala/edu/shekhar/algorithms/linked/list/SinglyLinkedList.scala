@@ -12,6 +12,7 @@ class SinglyLinkedList[T] extends LinkedList[T] {
     this.head = Some(newNode)
   }
 
+  override def toString: String = head.toString
 
   override def size: Long = {
     var current: Option[Node[T]] = this.head
@@ -30,18 +31,54 @@ class SinglyLinkedList[T] extends LinkedList[T] {
     }
   }
 
+  override def insert(itemToInsert: T, insertIndex: Long): Boolean = {
+    @tailrec
+    def loop(currentNode: Option[Node[T]], itemToInsert: T, insertIndex: Long, currentIndex: Long): Boolean = {
+      if (currentNode.isDefined) {
+        if (currentIndex == (insertIndex - 1)) {
+          val newNode: Node[T] = Node(itemToInsert)
+          newNode.next = currentNode.get.next
+          currentNode.get.next = Some(newNode)
+          true
+        } else {
+          loop(currentNode.get.next, itemToInsert, insertIndex, currentIndex + 1)
+        }
+      } else {
+        false
+      }
+    }
+
+    loop(this.head, itemToInsert, insertIndex, 0)
+  }
+
+  override def getIndex(dataToSearch: T): Option[Long] = {
+    @tailrec
+    def loop(currentNode: Option[Node[T]], dataToSearch: T, index: Long): Option[Long] = {
+      if (currentNode.isDefined) {
+        if (currentNode.get.data == dataToSearch) Some(index)
+        else loop(currentNode.get.next, dataToSearch, index + 1)
+      }
+      else {
+        None
+      }
+    }
+
+    loop(this.head, dataToSearch, 0)
+  }
+
   /**
    * Search operation in the singly linked list is linear and
    * it scans each item one by one from head to tail hence
    * its time complexity is O(n)
+   *
    * @param itemToSearch
    * @return
    */
   override def search(itemToSearch: T): Option[Node[T]] = {
     @tailrec
     def loop(currentNode: Option[Node[T]], itemToSearch: T): Option[Node[T]] = {
-      if(currentNode.isDefined){
-        if(currentNode.get.data == itemToSearch) {
+      if (currentNode.isDefined) {
+        if (currentNode.get.data == itemToSearch) {
           currentNode
         } else {
           loop(currentNode.get.next, itemToSearch)
@@ -50,6 +87,7 @@ class SinglyLinkedList[T] extends LinkedList[T] {
         None
       }
     }
+
     loop(this.head, itemToSearch)
   }
 }

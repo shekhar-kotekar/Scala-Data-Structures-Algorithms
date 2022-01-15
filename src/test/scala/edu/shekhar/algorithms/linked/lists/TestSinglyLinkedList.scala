@@ -42,4 +42,25 @@ class TestSinglyLinkedList extends AnyFlatSpec with should.Matchers with LazyLog
     result.isEmpty shouldBe true
   }
 
+  it should "insert at given index in the list" in {
+    val singlyLinkedList: LinkedList[Int] = new SinglyLinkedList[Int]
+    singlyLinkedList.add(10)
+    singlyLinkedList.add(20)
+    singlyLinkedList.add(30)
+    singlyLinkedList.add(40)
+    this.logger.info(singlyLinkedList.toString)
+
+    val insertAtIndex: Int = 2
+    val currentIndex: Option[Long] = singlyLinkedList.getIndex(20)
+    currentIndex.isDefined shouldBe true
+    currentIndex.get shouldEqual insertAtIndex
+
+    val valueToInsert: Int = 99999
+    singlyLinkedList.insert(valueToInsert, insertAtIndex)
+    this.logger.info(singlyLinkedList.toString)
+    val indexOfInsertedValue: Option[Long] = singlyLinkedList.getIndex(valueToInsert)
+    indexOfInsertedValue.isDefined shouldBe true
+    indexOfInsertedValue.get shouldEqual insertAtIndex
+  }
+
 }

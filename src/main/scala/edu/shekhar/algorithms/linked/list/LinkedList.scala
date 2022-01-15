@@ -10,4 +10,8 @@ trait LinkedList[T] extends LazyLogging {
   def size: Long
 
   def search(itemToSearch: T): Option[Node[T]]
+
+  def getIndex(dataToSearch: T): Option[Long]
+
+  def insert(itemToInsert: T, insertIndex: Long): Boolean
 }
