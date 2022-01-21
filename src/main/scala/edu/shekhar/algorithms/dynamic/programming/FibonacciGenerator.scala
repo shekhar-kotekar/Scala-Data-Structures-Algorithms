@@ -1,6 +1,7 @@
 package edu.shekhar.algorithms.dynamic.programming
 
 import scala.annotation.tailrec
+import scala.collection.immutable.LazyList.cons
 
 class FibonacciGenerator {
 
@@ -26,6 +27,7 @@ class FibonacciGenerator {
 
     loop(n, 0, 1)
   }
+
 
   /**
    * This implementation does not use dynamic programming and
